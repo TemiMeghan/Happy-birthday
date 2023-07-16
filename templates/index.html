@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Greeting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Happy Birthday!!!</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Make a Wish!</h2>
+                <form action="/birthday" method="POST" onsubmit="return showBirthdayMessage(event)">
+                    <label for="name">Enter your name:</label>
+                    <input type="text" name="name" id="name" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="overlay" id="overlay">
+            <div class="popup">
+                <h3>You are Special!</h3>
+                <h4 id="floating-text"></h4>
+                <div class="confetti-container"></div>
+                <button onclick="hideBirthdayMessage()">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
